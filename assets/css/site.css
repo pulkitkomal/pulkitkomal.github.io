@@ -1,23 +1,26 @@
 :root {
-  --ink: #14231d;
-  --muted: #4d6358;
-  --line: #c9d7cf;
-  --panel: rgba(237, 243, 239, 0.88);
-  --accent: #1f6b4f;
-  --accent-strong: #175540;
-  --bg1: #f3f7f4;
-  --bg2: #e4eee8;
+  --ink: #101820;
+  --muted: #5a6670;
+  --line: #d5dde4;
+  --paper: #eef3f7;
+  --paper-deep: #e2eaf1;
+  --accent: #0f6e7c;
+  --accent-strong: #0a5560;
+  --glow: #7eb8c4;
+  --signal: #c45c26;
   color: var(--ink);
-  background:
-    radial-gradient(1100px 480px at 8% -12%, #d7e8de 0%, transparent 55%),
-    radial-gradient(900px 420px at 100% 0%, #cfe0d8 0%, transparent 52%),
-    linear-gradient(180deg, var(--bg1), var(--bg2));
-  font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
+  font-family: "Manrope", "Segoe UI", sans-serif;
   line-height: 1.55;
+  font-weight: 400;
+  background: var(--paper);
 }
 
 * {
   box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 html,
@@ -26,14 +29,40 @@ body {
   min-height: 100%;
 }
 
+body {
+  position: relative;
+  overflow-x: hidden;
+}
+
+.atmosphere {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(900px 520px at 85% -5%, color-mix(in srgb, var(--glow) 42%, transparent), transparent 60%),
+    radial-gradient(700px 480px at -10% 20%, color-mix(in srgb, var(--signal) 14%, transparent), transparent 55%),
+    linear-gradient(165deg, var(--paper) 0%, var(--paper-deep) 48%, #d9e4ec 100%);
+  animation: drift 18s ease-in-out infinite alternate;
+}
+
+.atmosphere::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.35;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.45'/%3E%3C/svg%3E");
+  mix-blend-mode: soft-light;
+}
+
 a {
   color: var(--accent-strong);
 }
 
 .shell {
-  width: min(760px, calc(100% - 2rem));
+  width: min(920px, calc(100% - 2.5rem));
   margin: 0 auto;
-  padding: 1.5rem 0 3.5rem;
+  padding: 1.35rem 0 4rem;
 }
 
 .top {
@@ -41,14 +70,14 @@ a {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  margin-bottom: 2.5rem;
-  animation: rise 0.55s ease both;
+  margin-bottom: 0.5rem;
+  animation: rise 0.6s ease both;
 }
 
 .mark {
-  font-family: "Fraunces", Georgia, serif;
+  font-family: "Literata", Georgia, serif;
   font-weight: 700;
-  font-size: 1.2rem;
+  font-size: 1.05rem;
   letter-spacing: -0.03em;
   color: var(--ink);
   text-decoration: none;
@@ -56,155 +85,223 @@ a {
 
 nav {
   display: flex;
-  gap: 0.9rem;
+  gap: 1rem;
   align-items: center;
 }
 
 nav a {
   text-decoration: none;
   color: var(--muted);
-  font-weight: 500;
-  font-size: 0.95rem;
+  font-weight: 600;
+  font-size: 0.92rem;
+  transition: color 0.2s ease;
 }
 
-nav a.resume,
-.btn.primary {
-  background: var(--accent);
-  color: #f4fbf7;
+nav a:hover {
+  color: var(--ink);
+}
+
+nav a.resume {
+  background: var(--ink);
+  color: #f3f7fa;
   border-radius: 999px;
-  padding: 0.45rem 0.9rem;
+  padding: 0.48rem 0.95rem;
 }
 
-nav a.resume:hover,
-.btn.primary:hover {
+nav a.resume:hover {
   background: var(--accent-strong);
+  color: #fff;
 }
 
 .hero {
-  margin-bottom: 3rem;
-  animation: rise 0.7s ease both;
+  min-height: calc(100vh - 5.5rem);
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 2rem;
+  align-items: center;
+  padding: 2rem 0 3.5rem;
+  animation: rise 0.75s ease both;
 }
 
 .brand {
-  font-family: "Fraunces", Georgia, serif;
-  font-size: clamp(2rem, 5vw, 2.75rem);
+  font-family: "Literata", Georgia, serif;
+  font-size: clamp(3rem, 8vw, 5.4rem);
   font-weight: 700;
-  letter-spacing: -0.04em;
-  margin: 0 0 1rem;
+  letter-spacing: -0.055em;
+  line-height: 0.95;
+  margin: 0 0 1.35rem;
+  color: var(--ink);
 }
 
 .hero h1 {
-  font-family: "Fraunces", Georgia, serif;
+  font-family: "Literata", Georgia, serif;
   font-weight: 500;
-  font-size: clamp(1.35rem, 3.4vw, 1.85rem);
+  font-size: clamp(1.25rem, 2.6vw, 1.65rem);
   letter-spacing: -0.02em;
-  line-height: 1.25;
+  line-height: 1.3;
   margin: 0 0 0.9rem;
-  max-width: 18ch;
+  max-width: 16ch;
+  color: var(--ink);
 }
 
 .lede {
   margin: 0;
-  max-width: 38rem;
+  max-width: 34rem;
   color: var(--muted);
-  font-size: 1.05rem;
+  font-size: 1.06rem;
 }
 
 .cta {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
-  margin-top: 1.4rem;
+  margin-top: 1.6rem;
 }
 
 .btn {
   display: inline-flex;
   align-items: center;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 700;
   border-radius: 999px;
-  padding: 0.7rem 1.1rem;
-  transition: transform 0.15s ease, background 0.15s ease;
+  padding: 0.78rem 1.2rem;
+  transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease;
 }
 
 .btn:hover {
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+}
+
+.btn.primary {
+  background: var(--accent);
+  color: #f4fbfc;
+}
+
+.btn.primary:hover {
+  background: var(--accent-strong);
 }
 
 .btn.ghost {
-  border: 1px solid var(--line);
+  border: 1px solid color-mix(in srgb, var(--ink) 18%, transparent);
   color: var(--ink);
-  background: color-mix(in srgb, white 55%, transparent);
+  background: color-mix(in srgb, white 50%, transparent);
+}
+
+.btn.ghost:hover {
+  border-color: var(--ink);
+}
+
+.hero-visual {
+  position: relative;
+  height: min(420px, 55vw);
+  min-height: 260px;
+}
+
+.orbit,
+.signal {
+  position: absolute;
+  inset: 12% 8%;
+  border-radius: 40% 60% 55% 45%;
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+  animation: spin 28s linear infinite;
+}
+
+.orbit.delay {
+  inset: 22% 18%;
+  border-radius: 55% 45% 40% 60%;
+  border-color: color-mix(in srgb, var(--signal) 40%, transparent);
+  animation-duration: 38s;
+  animation-direction: reverse;
+}
+
+.signal {
+  inset: 34% 30%;
+  background:
+    radial-gradient(circle at 35% 35%, color-mix(in srgb, var(--glow) 70%, white), transparent 55%),
+    radial-gradient(circle at 70% 65%, color-mix(in srgb, var(--signal) 45%, transparent), transparent 50%);
+  border: 0;
+  filter: blur(0.2px);
+  animation: pulse 5.5s ease-in-out infinite;
 }
 
 .block {
-  padding: 1.5rem 0 0.5rem;
-  border-top: 1px solid var(--line);
-  animation: rise 0.6s ease both;
-  animation-delay: 0.08s;
+  padding: 2.4rem 0 0.4rem;
+  border-top: 1px solid color-mix(in srgb, var(--line) 80%, transparent);
+  animation: rise 0.65s ease both;
 }
 
 .block h2 {
-  font-family: "Fraunces", Georgia, serif;
-  font-size: 1.45rem;
-  margin: 0 0 0.7rem;
+  font-family: "Literata", Georgia, serif;
+  font-size: 1.55rem;
+  letter-spacing: -0.03em;
+  margin: 0 0 0.85rem;
 }
 
-.block > p,
+.measure,
 .section-lede {
+  max-width: 40rem;
   color: var(--muted);
-  margin-top: 0;
-}
-
-.chips {
-  list-style: none;
-  padding: 0;
-  margin: 1rem 0 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.chips li {
-  padding: 0.35rem 0.7rem;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  font-size: 0.9rem;
-  background: var(--panel);
+  margin: 0;
+  font-size: 1.02rem;
 }
 
 .timeline {
   display: grid;
-  gap: 1.25rem;
+  gap: 1.6rem;
+  margin-top: 1.2rem;
+  border-left: 2px solid color-mix(in srgb, var(--accent) 35%, var(--line));
+  padding-left: 1.2rem;
+}
+
+.timeline article {
+  position: relative;
+}
+
+.timeline article::before {
+  content: "";
+  position: absolute;
+  left: calc(-1.2rem - 5px);
+  top: 0.45rem;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--paper) 80%, white);
 }
 
 .timeline h3 {
-  margin: 0 0 0.2rem;
-  font-size: 1.05rem;
+  margin: 0 0 0.35rem;
+  font-size: 1.08rem;
+  letter-spacing: -0.01em;
 }
 
 .when {
-  margin: 0 0 0.45rem;
-  color: var(--muted);
-  font-size: 0.92rem;
+  margin: 0 0 0.25rem;
+  color: var(--signal);
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .timeline p:last-child {
   margin: 0;
+  color: var(--muted);
 }
 
 .aside {
-  margin-top: 1.2rem;
+  margin-top: 1.4rem;
   color: var(--muted);
   font-size: 0.95rem;
+  max-width: 40rem;
 }
 
 .note-list {
   list-style: none;
   padding: 0;
-  margin: 1rem 0 0;
+  margin: 1.2rem 0 0;
   display: grid;
-  gap: 0.85rem;
+  gap: 0;
 }
 
 .note-list li {
@@ -212,19 +309,27 @@ nav a.resume:hover,
   justify-content: space-between;
   gap: 1rem;
   align-items: baseline;
-  padding-bottom: 0.85rem;
+  padding: 1rem 0;
   border-bottom: 1px solid var(--line);
 }
 
 .note-list a {
+  font-family: "Literata", Georgia, serif;
   font-weight: 600;
+  font-size: 1.12rem;
+  letter-spacing: -0.02em;
   text-decoration: none;
   color: var(--ink);
+  background-image: linear-gradient(var(--accent), var(--accent));
+  background-size: 0% 2px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.25s ease, color 0.2s ease;
 }
 
 .note-list a:hover {
   color: var(--accent-strong);
-  text-decoration: underline;
+  background-size: 100% 2px;
 }
 
 .note-list time,
@@ -235,24 +340,26 @@ nav a.resume:hover,
 
 .note {
   animation: rise 0.55s ease both;
+  padding-top: 1rem;
 }
 
 .note h1 {
-  font-family: "Fraunces", Georgia, serif;
-  font-size: clamp(1.7rem, 4vw, 2.2rem);
-  letter-spacing: -0.03em;
-  margin: 0.3rem 0 0.5rem;
+  font-family: "Literata", Georgia, serif;
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  letter-spacing: -0.035em;
+  margin: 0.35rem 0 0.55rem;
 }
 
 .kicker a {
   text-decoration: none;
   color: var(--muted);
   font-size: 0.92rem;
+  font-weight: 600;
 }
 
 .meta {
   color: var(--muted);
-  margin: 0 0 1.4rem;
+  margin: 0 0 1.5rem;
 }
 
 .prose {
@@ -261,11 +368,12 @@ nav a.resume:hover,
 
 .prose p {
   margin: 0 0 1rem;
+  color: color-mix(in srgb, var(--ink) 88%, var(--muted));
 }
 
 .foot {
-  margin-top: 3rem;
-  padding-top: 1rem;
+  margin-top: 3.5rem;
+  padding-top: 1.2rem;
   border-top: 1px solid var(--line);
   color: var(--muted);
   font-size: 0.92rem;
@@ -273,12 +381,23 @@ nav a.resume:hover,
 
 .foot a {
   color: var(--muted);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.foot a:hover {
+  color: var(--ink);
+}
+
+.sep {
+  margin: 0 0.35rem;
+  opacity: 0.6;
 }
 
 @keyframes rise {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(14px);
   }
   to {
     opacity: 1;
@@ -286,13 +405,83 @@ nav a.resume:hover,
   }
 }
 
-@media (max-width: 640px) {
-  .note-list li {
-    flex-direction: column;
-    gap: 0.2rem;
+@keyframes drift {
+  from {
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+  to {
+    transform: scale(1.04) translate3d(-1.5%, 1%, 0);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.85;
+  }
+  50% {
+    transform: scale(1.06);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 800px) {
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding-top: 1.5rem;
+    gap: 1.25rem;
+  }
+
+  .hero-visual {
+    order: -1;
+    height: 220px;
+    min-height: 200px;
+  }
+
+  .brand {
+    font-size: clamp(2.6rem, 12vw, 3.6rem);
   }
 
   .hero h1 {
     max-width: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .shell {
+    width: min(100% - 1.5rem, 920px);
+  }
+
+  nav {
+    gap: 0.65rem;
+  }
+
+  .note-list li {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .atmosphere,
+  .orbit,
+  .orbit.delay,
+  .signal,
+  .hero,
+  .top,
+  .block,
+  .note {
+    animation: none;
   }
 }

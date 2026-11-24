@@ -1,66 +1,69 @@
 ---
 layout: default
-title: Profile
+title: Home
 description: AI/ML Engineer — Generative AI, RAG, and production NLP systems.
 ---
 
 <section class="hero">
-  <p class="brand">Pulkit Komal</p>
-  <h1>AI/ML engineer building production Generative AI systems.</h1>
-  <p class="lede">
-    5+ years shipping RAG chatbots, resume-to-JD relevance engines, and
-    recommendation APIs — with vector search, REST deployment, and team leadership.
-  </p>
-  <div class="cta">
-    <a class="btn primary" href="{{ '/assets/Pulkit_Komal_Resume.pdf' | relative_url }}" target="_blank" rel="noopener">Open resume</a>
-    <a class="btn ghost" href="#notes">Reading notes</a>
+  <div class="hero-copy">
+    <p class="brand">Pulkit Komal</p>
+    <h1>Production Generative AI, end to end.</h1>
+    <p class="lede">
+      RAG chatbots, relevance engines, and recommendation APIs — designed,
+      shipped, and led in production for 5+ years.
+    </p>
+    <div class="cta">
+      <a class="btn primary" href="{{ '/assets/Pulkit_Komal_Resume.pdf' | relative_url }}" target="_blank" rel="noopener">Open resume</a>
+      <a class="btn ghost" href="#notes">Reading notes</a>
+    </div>
+  </div>
+  <div class="hero-visual" aria-hidden="true">
+    <div class="orbit"></div>
+    <div class="orbit delay"></div>
+    <div class="signal"></div>
   </div>
 </section>
 
 <section class="block" id="about">
   <h2>Focus</h2>
-  <p>
-    Generative AI and NLP in production: RAG pipelines, LangChain, spaCy/YAKE,
-    Elasticsearch/OpenSearch vector search, Python services, Celery, WebSockets, and Docker.
+  <p class="measure">
+    I build Generative AI and NLP systems that hold up in production: RAG pipelines,
+    LangChain, spaCy and YAKE, Elasticsearch/OpenSearch vector search, Python services,
+    Celery, WebSockets, and Docker — with stakeholder alignment and mentoring in the loop.
   </p>
-  <ul class="chips">
-    <li>RAG &amp; Generative AI</li>
-    <li>Vector search</li>
-    <li>Recommendation APIs</li>
-    <li>Team leadership</li>
-  </ul>
 </section>
 
 <section class="block" id="experience">
-  <h2>Experience</h2>
+  <h2>Selected work</h2>
   <div class="timeline">
     <article>
+      <p class="when">Feb 2022 – Present</p>
       <h3>AI/ML Engineer · Tatras Data</h3>
-      <p class="when">Feb 2022 – Present · Mohali</p>
       <p>
-        Production RAG chatbot with Elasticsearch embeddings; resume-to-JD relevance
-        for a major consulting firm; led Edu-Collab APIs, Celery jobs, and realtime chat for Sabudh.
+        Shipped a production RAG chatbot on Elasticsearch embeddings; built
+        resume-to-JD relevance for a major consulting firm; led Edu-Collab APIs,
+        Celery jobs, and realtime chat for Sabudh.
       </p>
     </article>
     <article>
+      <p class="when">Nov 2020 – Jan 2022</p>
       <h3>Junior Data Scientist · Sabudh Foundation</h3>
-      <p class="when">Nov 2020 – Jan 2022 · Mohali</p>
       <p>
-        REST APIs, bird-call classification in the wild, Punjabi-to-English transliteration
-        for IDP, and autograding systems — while mentoring interns across India.
+        REST APIs, bird-call classification in the wild, Punjabi-to-English
+        transliteration for IDP, and autograding — while mentoring interns across India.
       </p>
     </article>
   </div>
   <p class="aside">
     B.S. Computer Science, GNDEC Ludhiana · NVIDIA AI Summit India 2024 ·
-    paper on AI-assisted bird call detection (FCDSEGS 2021).
+    FCDSEGS 2021 paper on AI-assisted bird call detection.
   </p>
 </section>
 
 <section class="block" id="notes">
   <h2>Notes</h2>
   <p class="section-lede">
-    Verified reading notes — published only after clearing an 80% comprehension check.
+    Verified reading notes — published only after an 80% comprehension check.
   </p>
   {% if site.posts.size > 0 %}
   <ul class="note-list">
