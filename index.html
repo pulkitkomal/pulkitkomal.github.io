@@ -5,68 +5,54 @@ description: AI/ML Engineer — Generative AI, RAG, and production NLP systems.
 ---
 
 <section class="hero">
-  <div class="hero-copy">
+  <div>
     <p class="brand">Pulkit Komal</p>
     <h1>Production Generative AI, end to end.</h1>
     <p class="lede">
-      RAG chatbots, relevance engines, and recommendation APIs — designed,
-      shipped, and led in production for 5+ years.
+      RAG systems, relevance engines, and recommendation APIs —
+      designed, shipped, and led for 5+ years.
     </p>
     <div class="cta">
       <a class="btn primary" href="{{ '/assets/Pulkit_Komal_Resume.pdf' | relative_url }}" target="_blank" rel="noopener">Open resume</a>
       <a class="btn ghost" href="#notes">Reading notes</a>
     </div>
   </div>
-  <div class="hero-visual" aria-hidden="true">
-    <div class="orbit"></div>
-    <div class="orbit delay"></div>
-    <div class="signal"></div>
-  </div>
+  <aside class="portrait" aria-hidden="true">
+    <div class="ribbon"></div>
+    <p class="caption">AI/ML · Mohali · building systems that retrieve, reason, and ship.</p>
+  </aside>
 </section>
 
 <section class="block" id="about">
   <h2>Focus</h2>
   <p class="measure">
-    I build Generative AI and NLP systems that hold up in production: RAG pipelines,
-    LangChain, spaCy and YAKE, Elasticsearch/OpenSearch vector search, Python services,
-    Celery, WebSockets, and Docker — with stakeholder alignment and mentoring in the loop.
+    Generative AI and NLP in production: RAG pipelines, vector search on
+    Elasticsearch/OpenSearch, Python services, and the leadership to keep
+    stakeholders and juniors moving with the work.
   </p>
 </section>
 
-<section class="block" id="experience">
+<section class="block" id="work">
   <h2>Selected work</h2>
-  <div class="timeline">
-    <article>
-      <p class="when">Feb 2022 – Present</p>
+  <div class="roles">
+    <article class="role">
+      <p class="when">2022 – Present</p>
       <h3>AI/ML Engineer · Tatras Data</h3>
-      <p>
-        Shipped a production RAG chatbot on Elasticsearch embeddings; built
-        resume-to-JD relevance for a major consulting firm; led Edu-Collab APIs,
-        Celery jobs, and realtime chat for Sabudh.
-      </p>
+      <p>Production RAG chatbot, resume-to-JD relevance, Edu-Collab platform leadership.</p>
     </article>
-    <article>
-      <p class="when">Nov 2020 – Jan 2022</p>
+    <article class="role">
+      <p class="when">2020 – 2022</p>
       <h3>Junior Data Scientist · Sabudh Foundation</h3>
-      <p>
-        REST APIs, bird-call classification in the wild, Punjabi-to-English
-        transliteration for IDP, and autograding — while mentoring interns across India.
-      </p>
+      <p>APIs, bird-call classification, transliteration for IDP, autograding, mentoring.</p>
     </article>
   </div>
-  <p class="aside">
-    B.S. Computer Science, GNDEC Ludhiana · NVIDIA AI Summit India 2024 ·
-    FCDSEGS 2021 paper on AI-assisted bird call detection.
-  </p>
 </section>
 
 <section class="block" id="notes">
   <h2>Notes</h2>
-  <p class="section-lede">
-    Verified reading notes — published only after an 80% comprehension check.
-  </p>
+  <p class="measure">Verified reading notes after an 80% comprehension check.</p>
   {% if site.posts.size > 0 %}
-  <ul class="note-list">
+  <ul class="notes">
     {% for post in site.posts %}
     <li>
       <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
