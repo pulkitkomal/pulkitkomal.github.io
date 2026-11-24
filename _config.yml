@@ -1,0 +1,13 @@
+title: Pulkit Komal
+description: AI/ML engineer building production Generative AI and NLP systems.
+url: "https://pulkitkomal.github.io"
+baseurl: "/personal-blog"
+author: Pulkit Komal
+email: pulkitkomal.work@gmail.com
+linkedin: https://linkedin.com/in/pulkit-komal
+phone: "+91 7009929113"
+markdown: kramdown
+permalink: /notes/:year/:month/:day/:title/
+plugins: []
+exclude:
+  - README.md

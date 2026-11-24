@@ -1,0 +1,77 @@
+---
+layout: default
+title: Profile
+description: AI/ML Engineer — Generative AI, RAG, and production NLP systems.
+---
+
+<section class="hero">
+  <p class="brand">Pulkit Komal</p>
+  <h1>AI/ML engineer building production Generative AI systems.</h1>
+  <p class="lede">
+    5+ years shipping RAG chatbots, resume-to-JD relevance engines, and
+    recommendation APIs — with vector search, REST deployment, and team leadership.
+  </p>
+  <div class="cta">
+    <a class="btn primary" href="{{ '/assets/Pulkit_Komal_Resume.pdf' | relative_url }}" target="_blank" rel="noopener">Open resume</a>
+    <a class="btn ghost" href="#notes">Reading notes</a>
+  </div>
+</section>
+
+<section class="block" id="about">
+  <h2>Focus</h2>
+  <p>
+    Generative AI and NLP in production: RAG pipelines, LangChain, spaCy/YAKE,
+    Elasticsearch/OpenSearch vector search, Python services, Celery, WebSockets, and Docker.
+  </p>
+  <ul class="chips">
+    <li>RAG &amp; Generative AI</li>
+    <li>Vector search</li>
+    <li>Recommendation APIs</li>
+    <li>Team leadership</li>
+  </ul>
+</section>
+
+<section class="block" id="experience">
+  <h2>Experience</h2>
+  <div class="timeline">
+    <article>
+      <h3>AI/ML Engineer · Tatras Data</h3>
+      <p class="when">Feb 2022 – Present · Mohali</p>
+      <p>
+        Production RAG chatbot with Elasticsearch embeddings; resume-to-JD relevance
+        for a major consulting firm; led Edu-Collab APIs, Celery jobs, and realtime chat for Sabudh.
+      </p>
+    </article>
+    <article>
+      <h3>Junior Data Scientist · Sabudh Foundation</h3>
+      <p class="when">Nov 2020 – Jan 2022 · Mohali</p>
+      <p>
+        REST APIs, bird-call classification in the wild, Punjabi-to-English transliteration
+        for IDP, and autograding systems — while mentoring interns across India.
+      </p>
+    </article>
+  </div>
+  <p class="aside">
+    B.S. Computer Science, GNDEC Ludhiana · NVIDIA AI Summit India 2024 ·
+    paper on AI-assisted bird call detection (FCDSEGS 2021).
+  </p>
+</section>
+
+<section class="block" id="notes">
+  <h2>Notes</h2>
+  <p class="section-lede">
+    Verified reading notes — published only after clearing an 80% comprehension check.
+  </p>
+  {% if site.posts.size > 0 %}
+  <ul class="note-list">
+    {% for post in site.posts %}
+    <li>
+      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p class="empty">No notes yet. New posts appear here after a passing learner quiz.</p>
+  {% endif %}
+</section>
